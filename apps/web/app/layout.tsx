@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Providers } from "@/components/providers";
 import "@repo/ui/globals.css";
+import "@/styles/local.css";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -14,8 +15,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Client Dashboard",
-  description: "Client dashboard for managing user activities",
+  title: "Admin Dashboard",
+  description: "Admin dashboard for managing the application",
 };
 
 export default function RootLayout({

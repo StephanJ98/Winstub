@@ -81,6 +81,15 @@ importers:
 
   apps/web:
     dependencies:
+      '@daveyplate/better-auth-ui':
+        specifier: ^3.3.1
+        version: 3.3.1(c378488a3222c9e09de919efa6306fa0)
+      '@repo/auth':
+        specifier: workspace:*
+        version: link:../../packages/auth
+      '@repo/db':
+        specifier: workspace:*
+        version: link:../../packages/db
       '@repo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
