@@ -11,7 +11,7 @@ const Page = async () => {
 
   return (
     <div className="">
-      Admin Dashboard Page
+      User Dashboard Page
     </div>
   )
 }
