@@ -3,7 +3,7 @@
  * 
  * This config does three main things:
  * 1. Environment Variable Loading: Manually reads and parses environment variables 
- *    from a root-level .env.local file (../../.env.local) so both apps can share 
+ *    from a root-level .env file (../../.env) so both apps can share 
  *    the same auth credentials from a single file at the monorepo root
  * 2. Package Transpilation: Transpiles workspace packages (@workspace/*) since 
  *    they're written in TypeScript and need compilation for the browser
@@ -19,9 +19,9 @@ import { readFileSync } from 'fs';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Load environment variables from root .env.local and set them manually
+// Load environment variables from root .env and set them manually
 try {
-  const envPath = resolve(__dirname, '../../.env.local');
+  const envPath = resolve(__dirname, '../../.env');
   const envFile = readFileSync(envPath, 'utf8');
   const lines = envFile.split('\n');
 
@@ -40,9 +40,9 @@ try {
       }
     }
   }
-  // Successfully loaded environment variables from root .env.local
+  // Successfully loaded environment variables from root .env
 } catch (error) {
-  console.warn('⚠️ Could not load root .env.local file:', error.message);
+  console.warn('⚠️ Could not load root .env file:', error.message);
 }
 
 /** @type {import('next').NextConfig} */
