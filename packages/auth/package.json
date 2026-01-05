@@ -17,7 +17,7 @@
     "dev": "tsc --watch"
   },
   "dependencies": {
-    "@repo/db": "workspace:*",
+    "@repo/database": "workspace:*",
     "better-auth": "1.4.7",
     "server-only": "0.0.1"
   },

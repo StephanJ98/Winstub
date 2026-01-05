@@ -47,7 +47,7 @@ try {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ["@repo/ui", "@repo/auth", "@repo/db"], //"@repo/trpc"
+  transpilePackages: ["@repo/ui", "@repo/auth", "@repo/database"], //"@repo/trpc"
   async headers() {
     return [
       {

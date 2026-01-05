@@ -1,5 +1,5 @@
 import { InferSelectModel } from 'drizzle-orm';
-import { account, session, user, verification } from './schema';
+import { account, session, user, verification } from './schemas/index.schema';
 
 export type User = InferSelectModel<typeof user>;
 export type Account = InferSelectModel<typeof account>;

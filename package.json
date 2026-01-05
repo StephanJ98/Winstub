@@ -9,6 +9,8 @@
     "check-types": "turbo run check-types",
     "db:check": "turbo run db:check",
     "db:generate": "turbo run db:generate",
+    "db:migrate": "turbo run db:migrate",
+    "db:studio": "turbo run db:studio",
     "lint:ws": "pnpm dlx sherif@latest ",
     "postinstall": "pnpm lint:ws"
   },

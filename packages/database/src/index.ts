@@ -1,3 +1,3 @@
-export * from './database';
-export * from './schema';
-export * from './types';
+export * as database from './database';
+export * as schemas from './schemas/index.schema';
+export * as db_types from './types';
