@@ -1,0 +1,21 @@
+{
+  "name": "database",
+  "version": "0.0.0",
+  "private": true,
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "db:check": "drizzle-kit check:pg",
+    "db:generate": "drizzle-kit generate:pg"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "drizzle-kit": "^0.31.8",
+    "typescript": "*"
+  },
+  "dependencies": {
+    "drizzle-orm": "0.45.1",
+    "postgres": "^3.4.7"
+  }
+}
