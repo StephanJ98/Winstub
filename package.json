@@ -18,6 +18,7 @@
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@tailwindcss/postcss": "^4.1.18",
+    "dotenv": "^17.2.3",
     "prettier": "^3.6.2",
     "tailwindcss": "^4.1.18",
     "turbo": "^2.7.2",

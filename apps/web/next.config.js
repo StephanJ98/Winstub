@@ -1,53 +1,17 @@
-/**
- * Next.js Configuration for Monorepo Apps
- * 
- * This config does three main things:
- * 1. Environment Variable Loading: Manually reads and parses environment variables 
- *    from a root-level .env file (../../.env) so both apps can share 
- *    the same auth credentials from a single file at the monorepo root
- * 2. Package Transpilation: Transpiles workspace packages (@workspace/*) since 
- *    they're written in TypeScript and need compilation for the browser
- * 3. Content Security Policy: Sets CSP headers to whitelist Google OAuth domains
- *    and APIs needed for authentication to work properly
- */
-
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { readFileSync } from 'fs';
+import dotenv from 'dotenv';
 
 // Get the directory of this config file
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Load environment variables from root .env and set them manually
-try {
-  const envPath = resolve(__dirname, '../../.env');
-  const envFile = readFileSync(envPath, 'utf8');
-  const lines = envFile.split('\n');
-
-  for (const line of lines) {
-    const trimmed = line.trim();
-    if (trimmed && !trimmed.startsWith('#')) {
-      const [key, ...valueParts] = trimmed.split('=');
-      if (key && valueParts.length > 0) {
-        let value = valueParts.join('=');
-        // Remove inline comments (everything after # including the #)
-        const commentIndex = value.indexOf('#');
-        if (commentIndex !== -1) {
-          value = value.substring(0, commentIndex).trim();
-        }
-        process.env[key] = value;
-      }
-    }
-  }
-  // Successfully loaded environment variables from root .env
-} catch (error) {
-  console.warn('⚠️ Could not load root .env file:', error.message);
-}
+// Load only the monorepo root .env
+dotenv.config({ path: resolve(__dirname, '../../.env'), override: true });
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ["@repo/ui", "@repo/auth", "@repo/database"], //"@repo/trpc"
+  transpilePackages: ["@repo/ui", "@repo/auth", "@repo/database"],
   async headers() {
     return [
       {

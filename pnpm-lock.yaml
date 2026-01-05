@@ -17,6 +17,9 @@ importers:
       '@tailwindcss/postcss':
         specifier: ^4.1.18
         version: 4.1.18
+      dotenv:
+        specifier: ^17.2.3
+        version: 17.2.3
       prettier:
         specifier: ^3.6.2
         version: 3.6.2
@@ -44,6 +47,9 @@ importers:
       '@repo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
+      dotenv:
+        specifier: '*'
+        version: 17.2.3
       lucide-react:
         specifier: ^0.475.0
         version: 0.475.0(react@19.2.0)
@@ -102,6 +108,9 @@ importers:
       '@repo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
+      dotenv:
+        specifier: '*'
+        version: 17.2.3
       lucide-react:
         specifier: ^0.475.0
         version: 0.475.0(react@19.2.0)
@@ -154,6 +163,9 @@ importers:
       better-auth:
         specifier: 1.4.7
         version: 1.4.7(drizzle-kit@0.31.8)(next@16.0.10(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      dotenv:
+        specifier: '*'
+        version: 17.2.3
       server-only:
         specifier: 0.0.1
         version: 0.0.1
@@ -171,7 +183,7 @@ importers:
   packages/database:
     dependencies:
       dotenv:
-        specifier: ^17.2.3
+        specifier: '*'
         version: 17.2.3
       drizzle-orm:
         specifier: 0.45.1
