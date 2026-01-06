@@ -8,6 +8,13 @@
       "when": 1767736655438,
       "tag": "0000_odd_supreme_intelligence",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1767737418177,
+      "tag": "0001_busy_glorian",
+      "breakpoints": true
     }
   ]
 }

@@ -19,20 +19,22 @@ import {
   marketplaceOffer,
   transaction,
   transactionStatusEnum,
-  userProfile,
-  playerRatings
+  profile,
+  playerRatings,
+  roleEnum
 } from './schemas';
 
 // Auth types
 export type User = InferSelectModel<typeof user>;
 export type Account = InferSelectModel<typeof account>;
-export type Session = InferSelectModel<typeof session>;
+export type SessionDB = InferSelectModel<typeof session>;
 export type Verification = InferSelectModel<typeof verification>;
 
 // Enum types
 export type EventType = InferEnum<typeof eventTypeEnum>;
 export type Status = InferEnum<typeof statusEnum>;
 export type TransactionStatus = InferEnum<typeof transactionStatusEnum>;
+export type Role = InferEnum<typeof roleEnum>;
 
 // Application types
 export type League = InferSelectModel<typeof league>;
@@ -47,5 +49,5 @@ export type Collection = InferSelectModel<typeof collection>;
 export type Transaction = InferSelectModel<typeof transaction>;
 export type MarketplaceListing = InferSelectModel<typeof marketplaceListing>;
 export type MarketplaceOffer = InferSelectModel<typeof marketplaceOffer>;
-export type UserProfile = InferSelectModel<typeof userProfile>;
 export type PlayerRatings = InferSelectModel<typeof playerRatings>;
+export type Profile = InferSelectModel<typeof profile>;

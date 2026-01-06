@@ -137,7 +137,9 @@ export const statistic = pgTable("statistic", {
   shotsOnTarget: integer("shots_on_target").notNull().default(0),
   passesCompleted: integer("passes_completed").notNull().default(0),
   tackles: integer("tackles").notNull().default(0),
-});
+},
+  (table) => [index("statistic_match_player_idx").on(table.matchId, table.playerId)],
+);
 
 export const prediction = pgTable("prediction", {
   ...baseSchemaFields,
@@ -149,11 +151,14 @@ export const prediction = pgTable("prediction", {
   updatedAt: timestamp("updated_at").notNull().defaultNow(),
   amountWagered: integer("amount_wagered").notNull().default(0),
   multiplier: integer("multiplier").notNull().default(1),
-});
+},
+  (table) => [index("prediction_user_match_idx").on(table.userId, table.matchId)],
+);
 
 export const collection = pgTable("collection", {
   ...baseSchemaFields,
   userId: uuid("user_id").notNull().references(() => user.id, { onDelete: "cascade" }),
+  leagueId: uuid("league_id").notNull().references(() => league.id, { onDelete: "cascade" }),
 });
 
 export const card = pgTable("card", {
@@ -196,10 +201,16 @@ export const marketplaceOffer = pgTable("marketplace_offer", {
   status: transactionStatusEnum("status").notNull().default("pending"),
 });
 
+export const roleEnum = pgEnum("role_enum", ["admin", "user", "market"]);
+
 export const profile = pgTable("profile", {
   ...baseSchemaFields,
   userId: uuid("user_id").notNull().references(() => user.id, { onDelete: "cascade" }),
+  role: roleEnum("role").notNull().default("user"),
   bio: text("bio"),
-  avatar: text("avatar"),
   favoriteTeamId: uuid("favorite_team_id").references(() => team.id, { onDelete: "set null" }),
-});
+  balance: integer("balance").notNull().default(0),
+  banned: boolean("banned").notNull().default(false),
+},
+  (table) => [index("profile_userId_idx").on(table.userId)]
+);
