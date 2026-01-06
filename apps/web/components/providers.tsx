@@ -5,12 +5,11 @@ import { AuthUIProvider } from "@daveyplate/better-auth-ui"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { ReactNode } from "react"
+import { authClient } from "@repo/auth/client"
 
-import { createAuthClient } from "@repo/auth/client"
 
 export function Providers({ children }: { children: ReactNode }) {
   const router = useRouter()
-  const authClient = createAuthClient()
 
   return (
     <NextThemesProvider

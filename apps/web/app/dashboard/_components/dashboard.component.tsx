@@ -1,6 +1,6 @@
 'use client'
 
-import { createAuthClient } from "@repo/auth/client"
+import { authClient } from "@repo/auth/client"
 import { Button } from "@repo/ui/components/button"
 import { useRouter } from "next/navigation"
 
@@ -12,7 +12,6 @@ type Props = {
 }
 
 const DashboardComponent = ({ user }: Props) => {
-  const authClient = createAuthClient()
   const router = useRouter()
 
   const handleSignOut = async () => {
