@@ -134,6 +134,14 @@ export const match = pgTable("match", {
   awayTeamScore: integer("away_team_score").notNull().default(0),
 });
 
+export const playerRatings = pgTable("player_ratings", {
+  ...baseSchemaFields,
+  matchId: uuid("match_id").notNull().references(() => match.id, { onDelete: "cascade" }),
+  playerId: uuid("player_id").notNull().references(() => player.id, { onDelete: "cascade" }),
+  points: integer("points").notNull().default(0),
+  events: uuid("events").array().notNull().default([]),
+});
+
 export const eventTypeEnum = pgEnum("event_type_enum", ["goal", "yellow_card", "red_card", "substitution", "penalty", "own_goal", "injury", "corner", "free_kick", "offside", "throw_in", "foul", "save", "kickoff", "penalty_shootout", "other"]);
 
 export const event = pgTable("event", {

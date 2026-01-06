@@ -19,7 +19,8 @@ import {
   marketplaceOffer,
   transaction,
   transactionStatusEnum,
-  userProfile
+  userProfile,
+  playerRatings
 } from './schemas';
 
 // Auth types
@@ -47,3 +48,4 @@ export type Transaction = InferSelectModel<typeof transaction>;
 export type MarketplaceListing = InferSelectModel<typeof marketplaceListing>;
 export type MarketplaceOffer = InferSelectModel<typeof marketplaceOffer>;
 export type UserProfile = InferSelectModel<typeof userProfile>;
+export type PlayerRatings = InferSelectModel<typeof playerRatings>;
